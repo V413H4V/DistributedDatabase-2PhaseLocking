@@ -1,6 +1,13 @@
 # Two-Phase Locking (2PL) with Wound-Wait deadlock prevention
 ==============================================================================
 ### This program simulates the behavior of the two-phase locking (2PL) protocol for concurrency control. The particular protocol to be implemented will be rigorous 2PL, with the wound-wait method for dealing with deadlock. The input to this program will be a file of transaction operations in a particular sequence. Each line has a single transaction operation. The possible operations are: b (begin transaction), r (read item), w (write item), and e (end transaction). Each operation will be followed by a transaction id that is an integer between 1 and 9. For r and w operations, an item name follows between parentheses (item names are single letters from A to Z). Two example are given below. (Important Note: The input sequence will be affected during the simulation – for example, some commands may cause a transaction to be blocked (wait). In such cases, the simulation should keep track of all operations of this transaction, and if the transaction is resumed, these operations should be simulated).
+
+<br>
+
+### Usage:
+``` java -jar ConcurencyControl.jar input_filename.txt ```
+<br>
+### 
 - ###  Simulation assigns transaction timestamps using an incremental counter, based on the transactions start order.
 - ### Transaction Table keeps relevant information about each transaction. This includes transaction id, transaction timestamp, transaction state (active, blocked (waiting), aborted (cancelled), committed, etc.), list of items locked by the transaction, plus any other relevant information.
 - ### For blocked transaction, simulation also keeps an ordered list of the operations of that transaction (from the input file) that are waiting to be executed once the transaction can be resumed.
